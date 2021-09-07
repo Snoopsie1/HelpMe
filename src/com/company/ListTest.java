@@ -15,7 +15,7 @@ class ListTest
    }
 
    @Test
-    void testPrintInsertFromHead()
+    void testPrintFromHead_InsertFromHead()
    {
        list.insertFromHead("1");
        list.insertFromHead("2");
@@ -26,7 +26,7 @@ class ListTest
    }
 
    @Test
-    void testPrintInsertFromTail()
+    void testPrintFromTail_InsertFromHead()
    {
        list.insertFromHead("1");
        list.insertFromHead("2");
@@ -34,6 +34,28 @@ class ListTest
        list.insertFromHead("4");
 
        assertEquals("1234", list.printFromTail());
+   }
+
+   @Test
+    void testPrintFromHead_InsertFromTail()
+   {
+       list.insertFromTail("1");
+       list.insertFromTail("2");
+       list.insertFromTail("3");
+       list.insertFromTail("4");
+
+       assertEquals("1234", list.printFromHead());
+   }
+
+   @Test
+   void testPrintFromTail_InsertFromTail()
+   {
+       list.insertFromTail("1");
+       list.insertFromTail("2");
+       list.insertFromTail("3");
+       list.insertFromTail("4");
+
+       assertEquals("4321", list.printFromTail());
 
    }
 }
