@@ -51,4 +51,17 @@ public class List
     }
 
 
+    public String printFromTail()
+    {
+        Node n = tail;
+        String res = "";
+
+        while (n != null)
+        {
+            res = res + n.data;
+            n = n.prev;
+        }
+
+        return res;
+    }
 }

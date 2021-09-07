@@ -24,4 +24,16 @@ class ListTest
 
        assertEquals("4321", list.printFromHead());
    }
+
+   @Test
+    void testPrintInsertFromTail()
+   {
+       list.insertFromHead("1");
+       list.insertFromHead("2");
+       list.insertFromHead("3");
+       list.insertFromHead("4");
+
+       assertEquals("1234", list.printFromTail());
+
+   }
 }
