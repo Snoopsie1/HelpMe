@@ -15,4 +15,40 @@ public class List
 
         return false;
     }
+
+
+    public Node insertFromHead(String s)
+    {
+        Node node = new Node(s);
+
+        if (isEmpty())
+        {
+            head = node;
+            tail = node;
+            return head;
+        }
+
+        head.prev = node;
+        node.next = head;
+        head = node;
+
+        return head;
+
+    }
+
+    public String printFromHead()
+    {
+        Node n = head;
+        String res = "";
+
+        while (n != null)
+        {
+            res = res + n.data;
+            n = n.next;
+        }
+
+        return res;
+    }
+
+
 }
