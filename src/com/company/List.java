@@ -17,9 +17,9 @@ public class List
     }
 
 
-    public Node insertFromHead(String s)
+    public Node insertFromHead(Node n)
     {
-        Node node = new Node(s);
+        Node node = n;
 
         if (isEmpty())
         {
@@ -36,9 +36,9 @@ public class List
 
     }
 
-    public Node insertFromTail(String s)
+    public Node insertFromTail(Node n)
     {
-        Node node = new Node(s);
+        Node node = n;
 
         if (isEmpty())
         {
@@ -84,4 +84,24 @@ public class List
     }
 
 
+    public Node removeFromHead()
+    {
+        Node node = new Node ("");
+
+        if (isEmpty())
+        {
+            return node;
+        }
+
+        if (head == tail)
+        {
+            node = head;
+            head = null;
+            tail = null;
+
+            return node;
+        }
+
+        return node;
+    }
 }
