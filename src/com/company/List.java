@@ -86,7 +86,7 @@ public class List
 
     public Node removeFromHead()
     {
-        Node node = new Node ("");
+        Node node;
 
         if (isEmpty())
         {
@@ -108,5 +108,26 @@ public class List
         head.prev.next = null;
         head.prev = null;
         return node;
+    }
+
+    public String findNodeFromHead(String s)
+    {
+        Node n = head;
+
+        if (isEmpty())
+        {
+            return null;
+        }
+
+        while(n != null)
+        {
+            if (n.data == s)
+            {
+               return n.data;
+            }
+            n = n.next;
+        }
+
+        return n.data;
     }
 }

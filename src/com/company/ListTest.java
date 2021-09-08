@@ -97,4 +97,13 @@ class ListTest
        assertEquals("210", list.printFromHead());
 
    }
+
+    @Test
+    void testFindNode()
+    {
+        setupHead();
+
+        assertEquals("2", list.findNodeFromHead("2"));
+
+    }
 }
