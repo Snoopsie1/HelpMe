@@ -10,8 +10,9 @@ class ListTest
     List list = new List();
     List listeTom = new List();
 
-    @BeforeEach
-    void setUp()
+    // use @BeforeEach to use setUp in every test method
+
+    void setupHead()
     {
         Node node0 = new Node("0");
         Node node1 = new Node("1");
@@ -24,31 +25,63 @@ class ListTest
         list.insertFromHead(node3);
     }
 
+    void setupTail()
+    {
+        Node node0 = new Node("0");
+        Node node1 = new Node("1");
+        Node node2 = new Node("2");
+        Node node3 = new Node("3");
+
+        list.insertFromTail(node0);
+        list.insertFromTail(node1);
+        list.insertFromTail(node2);
+        list.insertFromTail(node3);
+    }
+
     @Test
    void testListIsEmpty()
    {
-       assertEquals(true, list.isEmpty());
+       setupHead();
+       assertEquals(false, list.isEmpty());
    }
 
    @Test
     void testPrintFromHead_InsertFromHead()
    {
-       Node node0 = new Node("0");
-       Node node1 = new Node("1");
-       Node node2 = new Node("2");
-       Node node3 = new Node("3");
-
-       list.insertFromHead(node0);
-       list.insertFromHead(node1);
-       list.insertFromHead(node2);
-       list.insertFromHead(node3);
-
+       setupHead();
        assertEquals("3210", list.printFromHead());
    }
 
    @Test
     void testPrintFromTail_InsertFromHead()
    {
+       setupHead();
+       assertEquals("0123", list.printFromTail());
+   }
+
+   @Test
+    void testPrintFromHead_InsertFromTail()
+   {
+       setupTail();
+       assertEquals("0123", list.printFromHead());
+   }
+
+   @Test
+   void testPrintFromTail_InsertFromTail()
+   {
+       setupTail();
+       assertEquals("3210", list.printFromTail());
+   }
+
+   @Test
+    void testRemoveFromHead()
+   {
+       assertEquals(null, list.removeFromHead());
+       Node n = new Node("0");
+       list.insertFromHead(n);
+
+       assertEquals(n, list.removeFromHead());
+
        Node node0 = new Node("0");
        Node node1 = new Node("1");
        Node node2 = new Node("2");
@@ -59,60 +92,9 @@ class ListTest
        list.insertFromHead(node2);
        list.insertFromHead(node3);
 
-       assertEquals("0123", list.printFromTail());
-   }
 
-   @Test
-    void testPrintFromHead_InsertFromTail()
-   {
-       Node node0 = new Node("0");
-       Node node1 = new Node("1");
-       Node node2 = new Node("2");
-       Node node3 = new Node("3");
-
-       list.insertFromTail(node0);
-       list.insertFromTail(node1);
-       list.insertFromTail(node2);
-       list.insertFromTail(node3);
-
-       assertEquals("0123", list.printFromHead());
-   }
-
-   @Test
-   void testPrintFromTail_InsertFromTail()
-   {
-       Node node0 = new Node("0");
-       Node node1 = new Node("1");
-       Node node2 = new Node("2");
-       Node node3 = new Node("3");
-
-       list.insertFromTail(node0);
-       list.insertFromTail(node1);
-       list.insertFromTail(node2);
-       list.insertFromTail(node3);
-
-       assertEquals("4321", list.printFromTail());
-
-   }
-
-   @Test
-    void testRemoveFromHead()
-   {
-       Node node = new Node ("");
-
-       assertEquals (node, list.removeFromHead());
-
-       Node testNode = new Node("4");
-
-       listeTom.insertFromHead(testNode);
-       assertEquals(testNode, listeTom.removeFromHead());
-       assertEquals(true, listeTom.isEmpty());
-
-
-
-
-
-
+       assertEquals(node3, list.removeFromHead());
+       assertEquals("210", list.printFromHead());
 
    }
 }

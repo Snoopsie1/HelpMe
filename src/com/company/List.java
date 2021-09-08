@@ -90,7 +90,7 @@ public class List
 
         if (isEmpty())
         {
-            return node;
+            return null;
         }
 
         if (head == tail)
@@ -102,6 +102,11 @@ public class List
             return node;
         }
 
+        node = head;
+        head = head.next;
+        // Cutting connections
+        head.prev.next = null;
+        head.prev = null;
         return node;
     }
 }
