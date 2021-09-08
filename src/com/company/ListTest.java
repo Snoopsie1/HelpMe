@@ -106,4 +106,16 @@ class ListTest
         assertEquals("2", list.findNodeFromHead("2"));
 
     }
+
+    @Test
+    void testRemoveFoundNode()
+    {
+        setupHead();
+
+        assertEquals("0123", list.printFromTail());
+
+        list.removeFoundNode("2");
+
+        assertEquals("013", list.printFromTail());
+    }
 }

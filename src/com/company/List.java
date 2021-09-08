@@ -130,4 +130,28 @@ public class List
 
         return n.data;
     }
+
+    public void removeFoundNode(String s)
+    {
+        Node n = head;
+
+        if (isEmpty())
+        {
+            return;
+        }
+
+        while (n != null)
+        {
+            if (n.data == s)
+            {
+                n.next.prev = null;
+                n.prev.next = null;
+
+                n.prev.next = n.next;
+                n.next.prev = n.prev;
+            }
+
+            n = n.next;
+        }
+    }
 }
