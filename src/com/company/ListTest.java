@@ -1,5 +1,6 @@
 package com.company;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -8,7 +9,16 @@ class ListTest
 {
     List list = new List();
 
-   @Test
+    @BeforeEach
+    void setUp()
+    {
+        list.insertFromHead("0");
+        list.insertFromHead("1");
+        list.insertFromHead("2");
+        list.insertFromHead("3");
+    }
+
+    @Test
    void testListIsEmpty()
    {
        assertEquals(true, list.isEmpty());
